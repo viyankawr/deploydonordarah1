@@ -31,7 +31,7 @@ const UserController = {
 
                     if(bcrypt.compareSync(password, data.password))
                     {
-                        global.dbo.collection('m_role').findOne({'_id' : ObjectID(data.id_role)}, (err, role)=>{   
+                        global.dbo.collection('m_role').findOne({'_id' : ObjectID(data.ID_Role)}, (err, role)=>{   
                         if(role)
                         {
                             data.rolename = role.role;
