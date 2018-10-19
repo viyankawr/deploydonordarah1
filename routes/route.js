@@ -12,6 +12,7 @@ var goldarah = require('../controllers/m_goldarah');
 var pendonor = require('../controllers/t_pendonor');
 var middleware = require('../middleware/checktoken');
 var validate = require('../controllers/validate');
+var valrolname = require('../controllers/m_menu');
 
 
     //CORS
@@ -65,6 +66,8 @@ var validate = require('../controllers/validate');
     server.get('/api/validate/checkclient/:nama_client', validate.CheckClient);
     server.get('/api/validate/checkrole/:role', validate.CheckRole);
 
+    //Validate Role and Name
+    server.get('/api/name/', middleware.checkToken, valrolname.checkMenuRole);
 
     // error handler
     server.use(function(err, req, res, next) {
